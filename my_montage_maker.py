@@ -2,7 +2,7 @@
 """
 Created on Sun Jun 05 03:02:23 2016
 
-@author: Olivia
+@author: Yazdani
 """
 
 import glob 
