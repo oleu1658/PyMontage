@@ -24,6 +24,10 @@ class Error(QDialog):
         super(Error,self).__init__(parent)
         self.message = QLabel("Please input valid directories.")
         self.btn = QPushButton("OK")
+        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
+            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
+            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
+        self.btn.setStyleSheet(QPushButtonStyleStr)
         self.btn.clicked.connect(self.close)
         self.layout = QVBoxLayout(self)
         self.layout.addWidget(self.message)
@@ -41,87 +45,36 @@ class MontageDir(QDialog):
         self.montage = Montages()
         self.error = Error(self)
         self.createLabel = QPushButton('Provide full path to directory to create montages', self)
-        self.createLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
+            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
+            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
+        self.createLabel.setStyleSheet(QPushButtonStyleStr)
         self.createLabel.setFixedWidth(310)
         self.createLabel.clicked.connect(self.showPathToCreate)
         self.orLabel1 = QLabel("or",self)
         self.orLabel1.setAlignment(QtCore.Qt.AlignCenter)
         self.browse1 = QPushButton("Browse",self)
-        self.browse1.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse1.setStyleSheet(QPushButtonStyleStr)
         self.browse1.clicked.connect(self.getInputPath)
         self.createPath = QLabel("Path: ",self)      
         self.saveLabel = QPushButton('Provide full path to valid directory to save montages', self)
-        self.saveLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.saveLabel.setStyleSheet(QPushButtonStyleStr)
         self.saveLabel.setFixedWidth(310)
         self.saveLabel.clicked.connect(self.showPathToSave)
         self.orLabel2 = QLabel("or",self)
         self.orLabel2.setAlignment(QtCore.Qt.AlignCenter)
         self.browse2 = QPushButton("Browse",self)
-        self.browse2.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse2.setStyleSheet(QPushButtonStyleStr)
         self.browse2.clicked.connect(self.getOutputPath)
 
         self.savePath = QLabel("Path: ",self)
         self.spacer = QLabel("",self)
         self.apply = QPushButton("Apply",self)
-        self.apply.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.apply.setStyleSheet(QPushButtonStyleStr)
         self.apply.setFixedWidth(200)
         self.apply.clicked.connect(self.createMontage)
         self.backToMenu = QPushButton("Back To Menu",self)
-        self.backToMenu.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.backToMenu.setStyleSheet(QPushButtonStyleStr)
         self.backToMenu.setFixedWidth(200)
         self.backToMenu.clicked.connect(self.close)
 
@@ -159,6 +112,10 @@ class MontageDir(QDialog):
     def showPathToCreate(self):
         text, ok = QInputDialog.getText(self, 'Input Path to Create Montage', 
             'Enter path to directory:')
+        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
+            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
+            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
+        ok.setStyleSheet(QPushButtonStyleStr)
         if ok:
             if os.path.isdir(str(text)):  
                 self.createPath.clear
@@ -192,7 +149,7 @@ class MontageDir(QDialog):
         self.inputPath = str(text)
     
     ## @function getOutputPath
-    #  @brief Member function that get path to save montage from user-chosen folder using browse
+    #  @brief Member function that gets path to save montage from user-chosen folder using browse
     def getOutputPath(self):
         text = QFileDialog.getExistingDirectory(self, 'Select Folder', 'C:\\', QFileDialog.ShowDirsOnly)
         self.savePath.clear
@@ -220,114 +177,45 @@ class MontageFromCSV(QDialog):
         self.montage = Montages()
         self.error = Error(self)
         self.CSVLabel = QPushButton('Provide full path to csv file for creating montages', self)
-        self.CSVLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
+            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
+            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
+        self.CSVLabel.setStyleSheet(QPushButtonStyleStr)
         self.CSVLabel.setFixedWidth(310)
         self.CSVLabel.clicked.connect(self.showPathToCSV)
         self.orLabel1 = QLabel("or",self)
         self.orLabel1.setAlignment(QtCore.Qt.AlignCenter)
         self.browse1 = QPushButton("Browse",self)
-        self.browse1.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse1.setStyleSheet(QPushButtonStyleStr)
         self.browse1.clicked.connect(self.getCSVPath)
         self.CSVPathName = QLabel("Path: ",self)   
         self.imageLabel = QPushButton('Provide path to where images are located', self)
-        self.imageLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.imageLabel.setStyleSheet(QPushButtonStyleStr)
         self.imageLabel.setFixedWidth(310)
         self.imageLabel.clicked.connect(self.showPathToImage)
         self.orLabel2 = QLabel("or",self)
         self.orLabel2.setAlignment(QtCore.Qt.AlignCenter)
         self.browse2 = QPushButton("Browse",self)
-        self.browse2.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse2.setStyleSheet(QPushButtonStyleStr)
         self.browse2.clicked.connect(self.getImagePath)
         self.imagePathName = QLabel("Path: ",self)
         self.saveLabel = QPushButton('Provide full path to valid directory to save montages', self)
-        self.saveLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.saveLabel.setStyleSheet(QPushButtonStyleStr)
         self.saveLabel.setFixedWidth(310)
         self.saveLabel.clicked.connect(self.showPathToSave)
         self.orLabel3 = QLabel("or",self)
         self.orLabel3.setAlignment(QtCore.Qt.AlignCenter)
         self.browse3 = QPushButton("Browse",self)
-        self.browse3.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse3.setStyleSheet(QPushButtonStyleStr)
         self.browse3.clicked.connect(self.getOutputPath)
         self.savePath = QLabel("Path: ",self)
         self.spacer = QLabel("",self)
         self.apply = QPushButton("Apply",self)
-        self.apply.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.apply.setStyleSheet(QPushButtonStyleStr)
         self.apply.setFixedWidth(200)
         self.apply.clicked.connect(self.createMontage)
         self.backToMenu = QPushButton("Back To Menu",self)
-        self.backToMenu.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.backToMenu.setStyleSheet(QPushButtonStyleStr)
         self.backToMenu.setFixedWidth(200)
         self.backToMenu.clicked.connect(self.close)
         self.message = QLabel(self)
@@ -452,113 +340,44 @@ class VerticalMontageFromCSV(QDialog):
         self.montage = Montages()
         self.error = Error(self)
         self.CSVLabel = QPushButton('Provide full path to CSV file for creating montages', self)
-        self.CSVLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
+            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
+            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
+        self.CSVLabel.setStyleSheet(QPushButtonStyleStr)
         self.CSVLabel.setFixedWidth(310)                                    
         self.CSVLabel.clicked.connect(self.showPathToCSV)
         self.orLabel1 = QLabel("or",self)
         self.orLabel1.setAlignment(QtCore.Qt.AlignCenter)
         self.browse1 = QPushButton("Browse",self)
-        self.browse1.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse1.setStyleSheet(QPushButtonStyleStr)
         self.browse1.clicked.connect(self.getCSVPath)        
         self.CSVPathName = QLabel("Path: ",self)   
         self.imageLabel = QPushButton('Provide path to where images are located', self)
-        self.imageLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.imageLabel.setStyleSheet(QPushButtonStyleStr)
         self.imageLabel.setFixedWidth(310)
         self.imageLabel.clicked.connect(self.showPathToImage)
         self.orLabel2 = QLabel("or",self)
         self.orLabel2.setAlignment(QtCore.Qt.AlignCenter)
         self.browse2 = QPushButton("Browse",self)
-        self.browse2.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse2.setStyleSheet(QPushButtonStyleStr)
         self.browse2.clicked.connect(self.getImagePath)
         self.imagePathName = QLabel("Path: ",self)
         self.saveLabel = QPushButton('Provide full path to valid directory to save montages', self)
-        self.saveLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.saveLabel.setStyleSheet(QPushButtonStyleStr)
         self.saveLabel.setFixedWidth(310)
         self.saveLabel.clicked.connect(self.showPathToSave)
         self.orLabel3 = QLabel("or",self)
         self.orLabel3.setAlignment(QtCore.Qt.AlignCenter)
         self.browse3 = QPushButton("Browse",self)
-        self.browse3.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse3.setStyleSheet(QPushButtonStyleStr)
         self.browse3.clicked.connect(self.getOutputPath)
         self.savePath = QLabel("Path: ",self)
         self.spacer = QLabel("",self)
         self.apply = QPushButton("Apply",self)
-        self.apply.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.apply.setStyleSheet(QPushButtonStyleStr)
         self.apply.clicked.connect(self.createMontage)
         self.backToMenu = QPushButton("Back To Menu",self)
-        self.backToMenu.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.backToMenu.setStyleSheet(QPushButtonStyleStr)
         self.backToMenu.clicked.connect(self.close)
         self.message = QLabel(self)
         self.layout1 = QVBoxLayout(self)
@@ -684,86 +503,35 @@ class ImageHistFromCSV(QDialog):
         self.montage = Montages()
         self.error = Error(self)
         self.createLabel = QPushButton('Provide full path to csv file for creating image histogram', self)
-        self.createLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
+            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
+            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
+        self.createLabel.setStyleSheet(QPushButtonStyleStr)
         self.createLabel.setFixedWidth(350)
         self.createLabel.clicked.connect(self.showPathToCreate)
         self.orLabel1 = QLabel("or",self)
         self.orLabel1.setAlignment(QtCore.Qt.AlignCenter)
         self.browse1 = QPushButton("Browse",self)
-        self.browse1.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse1.setStyleSheet(QPushButtonStyleStr)
         self.browse1.clicked.connect(self.getCSVPath)
         self.createPath = QLabel("Path: ",self)      
         self.saveLabel = QPushButton('Provide full path and filename to save image histogram', self)
-        self.saveLabel.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.saveLabel.setStyleSheet(QPushButtonStyleStr)
         self.saveLabel.setFixedWidth(350)
         self.saveLabel.clicked.connect(self.showPathToSave)
         self.orLabel2 = QLabel("or",self)
         self.orLabel2.setAlignment(QtCore.Qt.AlignCenter)
         self.browse2 = QPushButton("Browse",self)
-        self.browse2.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.browse2.setStyleSheet(QPushButtonStyleStr)
         self.browse2.clicked.connect(self.getOutputPath)
         self.savePath = QLabel("Path: ",self)
         self.spacer = QLabel("",self)
         self.apply = QPushButton("Apply",self)
-        self.apply.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.apply.setStyleSheet(QPushButtonStyleStr)
         self.apply.setFixedWidth(200)
         self.apply.clicked.connect(self.createHist)
         self.backToMenu = QPushButton("Back To Menu",self)
-        self.backToMenu.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.backToMenu.setStyleSheet(QPushButtonStyleStr)
         self.backToMenu.setFixedWidth(200)
         self.backToMenu.clicked.connect(self.close)
         self.message = QLabel(self)
@@ -855,66 +623,26 @@ class PromptMenu(QWidget):
     def __init__(self, parent = None): #Constructor
         super(PromptMenu,self).__init__(parent)
         self.setGeometry(550,450,600,300)
-        self.setWindowTitle("Welcome to PyMontage")
+        self.setWindowTitle("PyMontage Menu")
+        self.setStyleSheet("QWidget{ background-color: #daf7a6;}")
         self.menuLabel = QLabel(self)
-        self.menuLabel.setText("PyMontage Menu")
-        self.menuLabel.setFont(QFont("Britannic Bold",20))
+        self.menuLabel.setText("Welcome to PyMontage")
+        self.menuLabel.setFont(QFont("Adobe Gothic Std B", 20))
+        self.menuLabel.setStyleSheet("QLabel{ color: #566573; }")
         self.menuLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.button1 = QPushButton("1. Create montages recursively from given directory and sub-directories",self)
-        self.button1.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
+            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
+            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
+        self.button1.setStyleSheet(QPushButtonStyleStr)
         self.button2 = QPushButton("2. Create montages from provided CSV files (split categories or bins)",self)
-        self.button2.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.button2.setStyleSheet(QPushButtonStyleStr)
         self.button3 = QPushButton("3. Create vertical montage from provided CSV file",self)
-        self.button3.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.button3.setStyleSheet(QPushButtonStyleStr)
         self.button4 = QPushButton("4. Create image histogram from provided CSV file",self)
-        self.button4.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.button4.setStyleSheet(QPushButtonStyleStr)
         self.exitBtn = QPushButton("Exit",self)
-        self.exitBtn.setStyleSheet("QPushButton{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #f6f7fa, stop: 1 #dadbde);"
-                                    "}"
-                                    "QPushButton:hover{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #a6e3ec);}"
-                                    "QPushButton:pressed{"
-                                        "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,"
-                                            "stop: 0 #b4e6ed, stop: 1 #60c1dc);}")
+        self.exitBtn.setStyleSheet(QPushButtonStyleStr)
         self.exitBtn.setFixedWidth(50)
         self.layout = QVBoxLayout(self)
         self.button1.clicked.connect(self.b1Clicked)
