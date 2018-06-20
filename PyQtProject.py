@@ -112,10 +112,6 @@ class MontageDir(QDialog):
     def showPathToCreate(self):
         text, ok = QInputDialog.getText(self, 'Input Path to Create Montage', 
             'Enter path to directory:')
-        QPushButtonStyleStr = 'QPushButton{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eafaf1, stop: 1 #d5f5e3); } \
-            QPushButton:hover{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #a6e3ec); } \
-            QPushButton:pressed{ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #b4e6ed, stop: 1 #60c1dc);}'
-        ok.setStyleSheet(QPushButtonStyleStr)
         if ok:
             if os.path.isdir(str(text)):  
                 self.createPath.clear
